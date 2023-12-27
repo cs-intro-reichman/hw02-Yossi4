@@ -1,4 +1,5 @@
-import java.util.Random;
+//import java.util.Random;
+import java.util.*;
 /**
  *  Computes some statistics about families in which the parents decide 
  *  to have children until they have at least one child of each gender.
@@ -10,7 +11,7 @@ import java.util.Random;
 public class OneOfEachStats {
 	public static void main (String[] args) {
 		// Gets the two command-line arguments
-		int T = Integer.parseInt(args[0]);
+		int t = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
@@ -24,6 +25,157 @@ public class OneOfEachStats {
 		//// just like you had in the previous version, except that the 
 		//// randomization will be based on the given seed.
 		//// This is the only change that you have to do in the program.
-		    
+
+
+			int totalSum = 1;
+			double average = 0.0;
+
+			boolean boyWasBorn = false;//1
+			boolean girlWasBorn = false;//0
+			int childrenCounter = 1;
+
+			int twoChildrenFam = 0;
+			int threeChildrenFam = 0;
+			int fourChildrenFam = 0;
+
+			int sexIndicator = (int) (generator.nextDouble() *2);
+
+			if (sexIndicator == 1) {
+
+				boyWasBorn = true;
+			}
+
+			else
+			{
+
+				girlWasBorn = true;
+
+			}
+
+
+
+
+
+			for (int i = 0; i < t   ;  i ++) {
+
+				while (boyWasBorn != girlWasBorn )
+				{
+					sexIndicator = (int) (generator.nextDouble() *2);
+					if (sexIndicator == 1)
+				 {
+					
+					boyWasBorn = true;
+					
+					}
+					
+
+					else
+						{
+						
+							girlWasBorn = true;
+
+
+						}
+				childrenCounter ++;
+				}
+
+				if ( childrenCounter == 2){
+
+					twoChildrenFam++;
+
+				}
+
+				else {
+
+					if (childrenCounter == 3){
+
+						threeChildrenFam++;
+
+					}
+					else 
+						fourChildrenFam++;
+				}
+
+
+				
+				totalSum += childrenCounter;
+				childrenCounter = 1;
+				boyWasBorn = false;
+				girlWasBorn = false;
+
+				sexIndicator = (int) (generator.nextDouble() *2);
+
+				if (sexIndicator == 1) {
+				
+					boyWasBorn = true;
+				}
+
+				else
+				{
+					
+					girlWasBorn = true;
+
+				}
+
+
+
+
+				
+			}
+			average = (double)totalSum/t;
+
+			System.out.println("Average: " + average+ " children to get at least one of each gender.");
+			System.out.println("Number of families with 2 children: " + twoChildrenFam);
+			System.out.println("Number of families with 3 children: " + threeChildrenFam);
+			System.out.println("Number of families with 4 or more children: " + fourChildrenFam);
+
+
+			if ((twoChildrenFam >= threeChildrenFam) && (twoChildrenFam >=fourChildrenFam)) {
+
+				System.out.println("The most common number of children is 2.");
+
+			}
+			else {
+
+					if ( (threeChildrenFam >= twoChildrenFam) && (threeChildrenFam >= fourChildrenFam))
+					{
+						System.out.println("The most common number of children is 3.");
+					}
+					else
+					{
+						System.out.println("The most common number of children is 4 or more.");
+
+					}
+
+
+
+
+			}
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 }
