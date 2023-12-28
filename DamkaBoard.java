@@ -8,6 +8,7 @@ public class DamkaBoard {
 
 				System.out.print("* ");
 				
+				
 			}
 				if (i % 2 != 0) {
 					System.out.println("");
@@ -18,7 +19,7 @@ public class DamkaBoard {
 
 					System.out.println("");
 				}
-
+				//
 
 		}
 
