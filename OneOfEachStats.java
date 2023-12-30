@@ -27,12 +27,12 @@ public class OneOfEachStats {
 		//// This is the only change that you have to do in the program.
 
 
-			int totalSum = 1;
+			double totalSum = 0.0;
 			double average = 0.0;
 
 			boolean boyWasBorn = false;//1
 			boolean girlWasBorn = false;//0
-			int childrenCounter = 1;
+			int childrenCounter = 1; //should be 1 though
 
 			int twoChildrenFam = 0;
 			int threeChildrenFam = 0;
@@ -122,7 +122,7 @@ public class OneOfEachStats {
 
 				
 			}
-			average = (double)totalSum/t;
+			average = totalSum/(double)t;
 
 			System.out.println("Average: " + average+ " children to get at least one of each gender.");
 			System.out.println("Number of families with 2 children: " + twoChildrenFam);
